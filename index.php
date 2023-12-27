@@ -53,7 +53,7 @@
 
   <!-- Login Button trigger modal -->
 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#loginModal">
-  Login
+  Logins
 </button>
 <div class="m-2"></div>
 <!-- Signup Button trigger modal -->

@@ -4,15 +4,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="button.css"/>
+    <link rel="stylesheet" href="css/button.css"/>
 
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/monokai-sublime.min.css">
     <!-- Choose a different style from https://github.com/highlightjs/highlight.js/tree/main/src/styles -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
     <script>hljs.highlightAll();</script>
-    <!--<link rel="stylesheet" href="fonttext.css"/>-->
-    
+    <!-- Link the Clipboard.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+
+    <!-- Link the copyButtonScript.js file -->
+    <script src="js/copyButton.js"></script>
+
 </head>
 <style>
     body{
@@ -124,21 +128,6 @@ public class Main
                     <button class="copy-button" data-clipboard-target="#ps1">Copy Code</button>
                     <p class="text-near-button">Java</p>
                 </div>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
-                <script>
-                    document.addEventListener('DOMContentLoaded', function () {
-                        var clipboard = new ClipboardJS('.copy-button');
-
-                        clipboard.on('success', function (e) {
-                            e.clearSelection();
-                            console.log('Code copied to clipboard');
-                        });
-
-                        clipboard.on('error', function (e) {
-                            console.error('Failed to copy code to clipboard');
-                        });
-                    });
-                </script>
 
                 <hr>
 
@@ -185,23 +174,359 @@ class Soln
                     <button class="copy-button" data-clipboard-target="#ps2">Copy Code</button>
                     <p class="text-near-button">Java</p>
                 </div>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
-                <script>
-                    document.addEventListener('DOMContentLoaded', function () {
-                        var clipboard = new ClipboardJS('.copy-button');
+                <hr>
+                <h5>3. Evenly Divide Number Count</h5>
+                <div class="code-container">
+                    <pre>
+                        <code class="language-java" id="ps3">
+public class Main 
+{
+    public static void main(String[] args) 
+    {
+        int a = 22074;
+        Soln ob = new Soln();
+        System.out.println(ob.evenlyDiv(a));
+    }
+}
+class Soln
+{
+    static int evenlyDiv(int n)
+    {
+    int count=0;
+    int rem = 0;
+    int N = n;
+    while(n>0)
+    {
+        rem = n%10;
+        if(rem!=0 && N%rem==0)
+        {
+            count++;
+        }
+        n/=10;
+    }
+    return count;
+    }
+}     
+                        </code>
+                    </pre>
 
-                        clipboard.on('success', function (e) {
-                            e.clearSelection();
-                            console.log('Code copied to clipboard');
-                        });
+                    <button class="copy-button" data-clipboard-target="#ps3">Copy Code</button>
+                    <p class="text-near-button">Java</p>
+                </div>
+                <hr>
+                <h5>4.	Reverse the Digit of N</h5>
+                <div class="code-container">
+                    <pre>
+                        <code class="language-java" id="ps4">
+public class Main 
+{
+    public static void main(String[] args) 
+    {
+        int N = 2024;
+        Solution ob = new Solution();
+        System.out.println(ob.Reverse(N));
+    }
+}
+class Solution
+{
+    static int Reverse(int N)
+    {
+        int rem = 0;
+        int rev = 0;
+        while(N>0)
+        {
+            rem = N%10;
+            if(rem!=0)
+            {
+                rev = rev*10+rem;
+            }
+            N/=10;
+        }
+        return rev;
+    }
+}     
+                        </code>
+                    </pre>
 
-                        clipboard.on('error', function (e) {
-                            console.error('Failed to copy code to clipboard');
-                        });
-                    });
-                </script>
+                    <button class="copy-button" data-clipboard-target="#ps4">Copy Code</button>
+                    <p class="text-near-button">Java</p>
+                </div>
+                <hr>
+                <h5>5.	Power of Numbers</h5>
+                <div class="code-container">
+                    <pre>
+                        <code class="language-java" id="ps5">
+public class Main 
+{
+    public static void main(String[] args) 
+    {
+        int N = 12 , R = 21;
+        Solution ob = new Solution();
+        System.out.println(ob.power(N,R));
+    }
+}
+class Solution
+{
+    static long power(int N, int R)
+    {
+        if(R==0) return 1;
+        if(R==1) return N;
+        if(R%2==0)
+        {
+            long halfpow = power(N,R/2);
+            return (long)(halfpow*halfpow)%1000000007;
+        }
+        else
+        {
+            return (long)(N*power(N,R-1))%1000000007;
+        }
+    }
+}    
+                        </code>
+                    </pre>
 
+                    <button class="copy-button" data-clipboard-target="#ps5">Copy Code</button>
+                    <p class="text-near-button">Java</p>
+                </div>
+                <hr>
+                <h5>6.	Find GCD Using Euclide and  Grabriel lame Algorithm</h5>
+                <div class="code-container">
+                    <pre>
+                        <code class="language-java" id="ps6">
+public class Main 
+{
+    public static void main(String[] args) 
+    {
+        int A = 12 , B = 21;
+        Solution ob = new Solution();
+        System.out.println(ob.EcluidGCD(A,B));
+    }
+}
+class Solution
+{
+    static long EuclideGCD(int A, int B)
+    {
+        while(A!=0&&B!=0)
+        {
+            if(A>B)
+            A = A%B;
+            else
+            B = B%A;
+        }
+        if(A!=0)
+        return A;
+        else
+        return B;
+    }
+}   
+                        </code>
+                    </pre>
 
+                    <button class="copy-button" data-clipboard-target="#ps6">Copy Code</button>
+                    <p class="text-near-button">Java</p>
+                </div>
+                <hr>
+                <h5>7.	Method 1 : For Print All Devisors</h5>
+                <div class="code-container">
+                    <pre>
+                        <code class="language-java" id="ps7">
+public class Main {
+    public static void main(String[] args) 
+    {
+        int num = 10;
+        Divisor(num);
+    }
+    static void Divisor(int num)
+    {
+        for(int i=1;i&lt;=num;++i)
+        {
+            if(num%i==0)
+            System.out.print(i+" ");
+        }
+
+    }
+}
+                        </code>
+                    </pre>
+
+                    <button class="copy-button" data-clipboard-target="#ps7">Copy Code</button>
+                    <p class="text-near-button">Java</p>
+                </div>
+                <h5>7.	Method 2 : Print all Divisors using List</h5>
+                <div class="code-container">
+                    <pre>
+                        <code class="language-java" id="psm2">
+import java.util.*;
+public class Main {
+    public static void main(String[] args) 
+    {
+        int n = 10;
+        System.out.println(printDivisors(n));
+    }
+    static List &lt;Integer&gt; printDivisors(int n)
+    {
+        List &lt;Integer&gt; Divisors = new ArrayList&lt;&gt;();
+        for(int i=1;i&lt;=n;i++)
+        {
+        if(n%i==0)
+            Divisors.add(i);
+        }
+        return Divisors;
+    }
+}
+                            
+                        </code>
+                    </pre>
+
+                    <button class="copy-button" data-clipboard-target="#psm2">Copy Code</button>
+                    <p class="text-near-button">Java</p>
+                </div>
+                <hr>
+                <h5>8.	Print All Divisors of Number</h5>
+                <div class="code-container">
+                    <pre>
+                        <code class="language-java" id="ps8">
+//Print All Divisors of Number
+public class Main 
+{
+    public static void main(String[] args) 
+    {
+        int n = 40;
+        divisors(n);
+    }
+    static void divisors(int n)
+    {
+        int i = 0;
+        for(i=1;i*i&lt;=n;i++)
+        {
+        if(n%i==0)
+            System.out.println(i);
+        }
+        for( ;i>=1;i--)
+        {
+        if(n%i==0)
+            System.out.println(n/i);
+        }
+    }
+}  
+                        </code>
+                    </pre>
+
+                    <button class="copy-button" data-clipboard-target="#ps8">Copy Code</button>
+                    <p class="text-near-button">Java</p>
+                </div>
+                <hr>
+                <h5>9.	Prime or Not</h5>
+                <div class="code-container">
+                    <pre>
+                        <code class="language-java" id="ps9">
+//Prime or Not
+public class Main 
+{
+    public static void main(String[] args) 
+    {
+        int n = 1;
+        System.out.println(prime(n));
+    }
+    static int prime(int n)
+    {
+        if(n&lt;=1)
+        return 0;
+        for(int i =2;i*i&lt;=n;i++)
+        {
+        if(n%i==0)
+            return 0;
+        }
+        return 1;
+        }  
+}
+                            
+                        </code>
+                    </pre>
+
+                    <button class="copy-button" data-clipboard-target="#ps9">Copy Code</button>
+                    <p class="text-near-button">Java</p>
+                </div>
+                <hr>
+                <h5>10.	Amstrong Number</h5>
+                <div class="code-container">
+                    <pre>
+                        <code class="language-java" id="ps10">
+//Amstrong Number
+public class Main 
+{
+    public static void main(String[] args) 
+    {
+        int n = 1634;
+        //isAmstrong(n);
+        System.out.println(isAmstrong(n));
+    }
+    static String isAmstrong(int n)
+    {
+        int temp = n;
+        int digit = 0;
+        int sum = 0;
+        while(temp>0)
+        {
+            temp /=10;
+            digit++;
+        }
+        temp = n;
+        while(temp>0)
+        {
+            int lastDigit = temp%10;
+            sum = (int)(sum+Math.pow(lastDigit,digit));
+            temp/=10;
+        }
+        if(sum==n)
+        return "Yes";
+        return "No";
+        
+    } 
+}
+                            
+                        </code>
+                    </pre>
+
+                    <button class="copy-button" data-clipboard-target="#ps10">Copy Code</button>
+                    <p class="text-near-button">Java</p>
+                </div>
+                <hr>
+                <h5>11.	Palindrome or Not</h5>
+                <div class="code-container">
+                    <pre>
+                        <code class="language-java" id="ps11">
+//Palindrome or Not
+public class Main 
+{
+    public static void main(String[] args) 
+    {
+        int n = 151;
+        System.out.println(isPalindrome(n));
+    }
+    static String isPalindrome(int n)
+    {
+        int temp = n;
+        int rev = 0;
+        int lastDigit = 0;
+        while(temp>0)
+        {
+        lastDigit = temp%10;
+        rev = rev*10+lastDigit;
+        temp /= 10;
+        }
+        if(rev==n)
+        return "Yes";
+        return "No";
+    } 
+}
+                            
+                        </code>
+                    </pre>
+
+                    <button class="copy-button" data-clipboard-target="#ps11">Copy Code</button>
+                    <p class="text-near-button">Java</p>
+                </div>
 
 
             </div>
